@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="#" type="text/css" />
+    <script type="text/JavaScript"></script>
+  </head>
+  <body>
+    <p id="js">JavaScript</p>
+    <div id="list">
+      <p id="se">JavaSE</p>
+      <p id="ee">JavaEE</p>
+      <p id="me">JavaME</p>
+    </div>
+    <script>
+      var js = document.getElementById("js");
+      var list = document.getElementById("list");
+      //通过js创建一个新的节点
+      var newP = document.createElement("p");
+      newP.id = "newP";
+      newP.newP.innerText = "hello.word";
+      //list.appendChild(newP);
+
+      //创建一个标签节点
+      var myScript = document.createElement("script");
+      myScript.setAttribute("type", "text/javascript");
+
+      //
+      var body = document.getElementsByTagName('body');
+    </script>
+  </body>
+</html>

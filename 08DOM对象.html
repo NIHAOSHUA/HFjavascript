@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="father">
+      <h1>标题一</h1>
+      <p id="id">p1</p>
+      <p class="p2">p2</p>
+    </div>
+    <script>
+      var h1 = document.getElementByTagName("h1");
+      var p1 = document.getElementById("p1");
+      var p2 = document.getElementsByClassName("p2");
+      var father = document.getElementById("father");
+
+      var childrens = father.children; //获取父节点下的所有子节点
+    </script>
+  </body>
+</html>
