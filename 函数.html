@@ -8,11 +8,143 @@
 <body>
     <script>
         //声明函数
-        function pu(){
+        function put(){
             console.log("打冰箱");
             console.log("放进去");
             console.log("关上冰箱门");
         }
+        function putAnythingInRefrigerator(something){
+            console.log("打开冰箱");
+            console.log("把"+something + "放进去");
+            console.log("关上冰箱门");
+        }
+        function add(a, b){
+            return a + b;
+        }
+
+        function testNum(num){
+            if(num < 0) return;
+            return num > 10;
+        }
+
+        //调用函数
+        put();
+        putAnythingInRefrigerator("小鸟");
+        console.log(add(1,2));
+
+        var result = add(1,2);
+        console.log(result);
+
+        console.log(add(result, 5));
+
+        console.log(testNum(-5));
+        console.log(testNum(15));
+
+        //函数表达式
+        console.log(add);
+
+        var plus = add;
+        var res = plus(5,6);
+        console.log(res);
+
+        //匿名函数，调试的时候不容易发现是哪个代码
+        var multiply = function(a, b){
+            return a * b;
+        }
+        console.log(multiply(6, 2));
+
+        //函数和变量的提升
+        console.clear();
+
+        x = 5;
+        console.log(x);
+        var x;
+
+        console.log(divide(8, 2));
+        function divide(a, b){
+            return a/b;
+        }
+
+        //默认参数
+        function greetings(name = "yangqiao"){
+            console.log("你好，" + name);
+        }
+        greetings();
+        greetings("张三");
+
+        function greetingWithWeather(name = "yangqiao", weather){
+            console.log("你好，" + name + ".今天是" + weather);
+        }
+        greetingWithWeather(undefined , "晴天");
+
+        //递归
+         console.clear();
+
+         function sum(n){
+             if(n === 1){
+                 return 1;
+             }
+             return n + sum(n-1);
+         }
+
+         console.log(sum(10));
+         
+         // 1 1 2 3 5 8 13...
+         function fib(num){
+             if(num <= 1 ){
+                 return 1;
+             }
+             return fib(num - 1) + fib(num - 2);
+         }
+
+         console.log(fib(5));
+
+         //arguments
+         console.clear();
+         function log(){
+             for(let i = 0; i<arguments.length ;i++){
+                console.log(arguments[i]);
+             }
+         }
+         log("abc", "bcd");
+
+         //作用域
+         console.clear();
+
+         var x = 5;
+         function add(a){
+             var y = 10;
+             console.log("y=" + y);
+             return a+x;
+         }
+         console.log(add(8));
+         x = 20;
+         console.log(add(8));
+
+         var num = 100;
+
+         function multiply1(num){
+             return num * 10;
+         }
+
+         console.log(multiply1(4));
+
+         //var/let
+         console.clear();
+
+         var z = 6;
+         if (z>2){
+             console.log(z);
+             var innerZ = 17;
+         }
+         console.log(innerZ);
+
+         for(var i = 0;i<10;i++){
+             console.log(i);
+             var innerI = 33;
+         }
+         console.log(i);
+         console.log(innerI);
     </script>
 </body>
 </html>
