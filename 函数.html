@@ -145,6 +145,102 @@
          }
          console.log(i);
          console.log(innerI);
+
+         //箭头函数 ，简化函数的示例,匿名函数
+         console.clear();
+
+         var greeting = () => {
+             console.log("hello");
+         }
+         greeting();
+
+         var greeting = name => {
+             console.log("hello" + name);
+         }
+         greeting("yangqiao");
+
+         var greeting = (name, weather) => {
+             console.log("hello" + name +"今天是"+ weather);
+         }
+         greeting("yangqiao","晴天");
+
+         var increment = x => x + 1;
+         console.log(increment(6));
+
+         //闭包 , 函数里再定义函数，内部函数可以访问外部函数的变量，形成私有的private函数
+         console.clear();
+          function squareSum(a, b) {
+              function square(x){
+                  return x * x;
+              }
+              return square(a) + square(b);
+          }
+          console.log(squareSum(2,3));
+        //内部函数也可以作为返回值返回出去，整个外部函数就成为高阶函数(higher-order function)
+        function person(){
+            let name = "yangqiao";
+            //只能访问它的值，不能修改它的值，起到保护作用
+            function getName(){
+                //retuen 外部的name;
+                return name;
+            }
+            return getName;
+        }
+        var getName = person();
+        console.log(person());
+        console.log(getName());
+
+        //柯里化 把一个接收多个参数的函数，变成一系列接收一个参数的内部函数，这样他们的值能够保留
+        console.clear();
+        
+        function addThreeNums(a, b, c){
+            return a + b + c;
+        }
+        console.log(addThreeNums(1, 2, 3));
+        
+        function addThreeNumsCurry(a){
+            return function(b){
+                return function(c){
+                    return a + b + c;
+                }
+            }
+        }
+        console.log(addThreeNumsCurry(1)(2)(3));
+        //好处：前两个固定
+        var fixedTwo = addThreeNumsCurry(1)(2);
+        console.log(fixedTwo(3));
+        console.log(fixedTwo(4));
+        console.log(fixedTwo(5));
+
+        //自执行函数 函数定义完后 直接调用它自己，优势代码防止外部访问，防止被篡改。内部形成作用域，防止和外部变量命名冲突。
+        console.clear();
+
+        var num1 = 10;
+        (function(){
+            var num1 = 20;
+            console.log(num1);
+        })();
+        console.log(num1);
+
+        //回调函数 一段代码执行完后要调用的函数，一般作为另一个函数的参数传进去，在另一个函数里面调用它
+        console.clear();
+
+        function request(cb){
+            console.log("请求数据");
+            cb("success");
+            console.log("请求结束");
+        }
+        // function callback(result){
+        //     console.log("执行回调");
+        //     console.log("执行结果是:" + result);
+        // }
+        // request(callback);
+
+        //使用箭头函数
+        request(result => {
+            console.log("执行回调");
+            console.log("执行结果是:" + result);
+        })
     </script>
 </body>
 </html>
