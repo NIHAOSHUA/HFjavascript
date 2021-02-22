@@ -74,5 +74,70 @@ arr.forEach((ele, index, self)=>{
 });
 
 //栈模式
-//
+console.clear();
+var stack = [1,2,3];
+stack.push(4);
+
+console.log(stack);
+stack.push(5,6,7);
+console.log(stack);
+
+var last = stack.pop();//查看栈最后一个元素
+console.log(last);
+console.log(stack);
+
+//peek查看栈顶元素
+console.log(stack[stack.length - 1]);
+
+//队列模式，先进先出
+console.clear();
+var queue = [1, 2, 3];
+queue.push(4,5,6);
+
+console.log(queue);
+var first = queue.shift();
+console.log(first);
+console.log(queue);
+
+queue.unshift(10,11,12);
+console.log(queue);
+
+//反转数组
+console.clear();
+var arr = [1,2,3];
+console.log(arr.reverse());
+console.log(arr);
+
+console.log("hello".split("").reverse().join(""));//split分隔符,reverse反转，join还原符
+
+//数组排序
+console.clear();
+var arr = [1,5,3,2,4];
+arr.sort();//正序排序sort();
+console.log(arr);
+
+arr.sort((a,b)=>{
+    if(a>b){
+        return -1;
+    }else if(a<b){
+        return 1;
+    }else{
+        return 0;
+    }
+});
+console.log(arr);
+
+//数组的连接
+console.clear();
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+console.log(arr1.concat(arr2));
+
+//数组的裁切
+console.clear();
+var arr = [1, 2, 3, 4, 5];
+
+console.log(arr.slice(1,-1));//slice中两个参数代表着开始索引和结束索引,负数代表倒数第几个字符
+
+
 
