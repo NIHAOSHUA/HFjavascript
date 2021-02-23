@@ -54,3 +54,25 @@ console.log(person.fullName);
 person.fullName = "李四",
 console.log(person.fullName);
 console.log(person.lastName,person.firstName);
+
+function Employee2(name,position){
+    this.name = name;
+    this.position = position;
+}
+
+var emp5 = new Employee2("赵六","前端工程师");
+Object.defineProperty(emp5,"info",{
+    get:function(){
+        return this.name + " " + this.position;
+    },
+    set:function(info){
+        let [name,position] = info.split(" ");
+        this.name = name;
+        this.position = position;
+    }
+});
+
+console.log(emp5,info);
+emp5.info = "赵七 后端工程师";
+console.log(emp5.name);
+console.log(emp5.position);
