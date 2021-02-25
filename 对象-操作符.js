@@ -139,3 +139,15 @@ var emp = {
 };
 // emp.printInfo();
 // emp.department.printInfo();
+
+//直接调用printInfo(),这里的this指向的是全局的window对象，window没有name属性
+function printInfo(dep1, dep2, dep3) {
+  console.log("员工姓名:" + this.name, dep1, dep2, dep3);
+}
+printInfo();
+
+printInfo.call(emp, "技术部", "图书馆", "It技术部");
+printInfo.apply(emp, ["技术部", "图书馆", "It技术部"]);
+console.clear();
+var empPrintInfo = printInfo.bind(emp, "技术部", "图书馆", "It技术部");
+empPrintInfo();
